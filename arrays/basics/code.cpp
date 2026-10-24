@@ -127,6 +127,25 @@ double xPn(double x, int n)
     return ans;
 }
 
+int maxArea(vector<int> &nums)
+{
+    int n = nums.size();
+
+    int st = 0, end = n - 1;
+    int maxA = 0;
+    while (st < end)
+    {
+        int h = min(nums[st], nums[end]);
+        int w = end - st;
+        int area = h * w;
+        maxA = max(area, maxA);
+
+        nums[st] < nums[end] ? st++ : end--;
+    }
+
+    return maxA;
+}
+
 int main()
 {
 
